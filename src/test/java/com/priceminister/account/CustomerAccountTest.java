@@ -71,13 +71,14 @@ public class CustomerAccountTest {
         }
     }
 
+
     /**
-     * Tes
+     * Test WithdrawPermitted() checks if this method works
      */
     @Test
     public void testWithdrawPermitted() {
-        assertTrue("", );
-
+        assertTrue("True when the value is positive", rule.withdrawPermitted(1.0d));
+        assertFalse("False when the value is negative", rule.withdrawPermitted(-1.0d));
     }
     
     // Also implement missing unit tests for the above functionalities.

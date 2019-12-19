@@ -2,6 +2,9 @@ package com.priceminister.account.implementation;
 
 import com.priceminister.account.*;
 
+/**
+ * Simple implementation of Account
+ */
 
 public class CustomerAccount implements Account {
 

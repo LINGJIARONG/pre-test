@@ -16,7 +16,9 @@ package com.priceminister.account.implementation;
 
 import com.priceminister.account.*;
 
-
+/**
+ * Simple implementation of AccountRule
+ */
 public class CustomerAccountRule implements AccountRule {
 
     /* (non-Javadoc)
