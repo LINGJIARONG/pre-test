@@ -82,5 +82,22 @@ public class CustomerAccountTest {
     }
     
     // Also implement missing unit tests for the above functionalities.
+    /**
+     * Test WithdrawPermitted() checks if this method works
+     */
+    @Test
+    public void testWithdrawAndReportBalance() {
+
+        customerAccount.add(100.0d);
+        assertEquals("add 100 : expected 100",100.0d,customerAccount.getBalance(),0.0d);
+        try {
+            customerAccount.withdrawAndReportBalance(20.0d, rule);
+            assertEquals("resulting balance should equal 80.0", 80.0d, customerAccount.getBalance(),0.0d );
+        } catch (IllegalBalanceException e) {
+            fail("should not raise an exception cause enough balance");
+        }
+
+
+    }
 
 }
