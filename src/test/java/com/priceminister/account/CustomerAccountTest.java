@@ -29,6 +29,7 @@ public class CustomerAccountTest {
     @Before
     public void setUp() throws Exception {
         customerAccount = new CustomerAccount();
+        rule = new CustomerAccountRule();
     }
     
     /**
@@ -36,15 +37,22 @@ public class CustomerAccountTest {
      */
     @Test
     public void testAccountWithoutMoneyHasZeroBalance() {
-        fail("not yet implemented");
+        Double emptyAccountBalance = customerAccount.getBalance();
+        assertNotNull("an empty account should be not Null", emptyAccountBalance);
+        assertEquals("an empty account should be 0.0", 0.0d, emptyAccountBalance, 0.0d);
     }
-    
+
     /**
      * Adds money to the account and checks that the new balance is as expected.
      */
     @Test
     public void testAddPositiveAmount() {
-        fail("not yet implemented");
+        assertEquals("Initial value: Expected 0.0",
+                0.0d, customerAccount.getBalance(), 0.0d);
+        Double addAmount = 15.0d;
+        customerAccount.add(addAmount);
+        assertEquals("Adds money to the account: Expected 15.0",
+                15.0d, customerAccount.getBalance(), 0.0d);
     }
     
     /**
@@ -53,7 +61,23 @@ public class CustomerAccountTest {
      */
     @Test
     public void testWithdrawAndReportBalanceIllegalBalance() {
-        fail("not yet implemented");
+
+        try {
+            customerAccount.withdrawAndReportBalance(20.0d, rule);
+            fail("It should throw an exception because of an illegal withdrawal");
+        } catch (IllegalBalanceException e) {
+            assertEquals("Check Thrown message",
+                    "Illegal account balance: -20.0", e.toString());
+        }
+    }
+
+    /**
+     * Tes
+     */
+    @Test
+    public void testWithdrawPermitted() {
+        assertTrue("", );
+
     }
     
     // Also implement missing unit tests for the above functionalities.
